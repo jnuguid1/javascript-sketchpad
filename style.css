@@ -1,0 +1,16 @@
+.grid{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: flex-start;
+    height: 100vh;
+    width: 400px;
+    flex-wrap: wrap;
+}
+
+.grid-square {
+    border-style: solid;
+    width: 100px;
+    height: 100px;
+    box-sizing: border-box;
+}
