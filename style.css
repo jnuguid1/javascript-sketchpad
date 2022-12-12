@@ -20,6 +20,7 @@
     width: 10px;
     height: 10px;
     box-sizing: border-box;
+    border-width: 1px;
 }
 
 .button-container {
