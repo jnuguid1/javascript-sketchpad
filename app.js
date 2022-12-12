@@ -1,7 +1,7 @@
 const grid = document.querySelector('.grid');
-const SQUARES_MAX = 16;
+const GRID_WIDTH = 16;
 
-for (let i = 0; i < SQUARES_MAX; i++) {
+for (let i = 0; i < GRID_WIDTH ** 2; i++) {
     const gridSquare = document.createElement('div');
     gridSquare.classList.add('grid-square');
     gridSquare.addEventListener("mouseover", colorSquare)
