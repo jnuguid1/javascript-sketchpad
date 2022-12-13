@@ -2,7 +2,7 @@ const grid = document.querySelector('.grid');
 const newGridButton = document.querySelector('.new-grid-button');
 const DEFAULT_GRID_WIDTH = 500;
 const DEFAULT_GRID_DIMENSION = 16;
-const GRID_SQUARE_WIDTH = 60;
+const MAX_GRID_DIMENSION = 64;
 
 generateGrid(DEFAULT_GRID_DIMENSION)
 
@@ -16,6 +16,8 @@ function generateNewGrid() {
     const newGridWidth = prompt('Enter the number of squares per side', 16);
     if (newGridWidth <= 0) {
         alert('Enter a number greater than 0');
+    } else if (newGridWidth > MAX_GRID_DIMENSION) {
+        alert('The maximum square per side is 64');
     } else {
         while (grid.hasChildNodes()) {
             grid.removeChild(grid.firstChild);
