@@ -1,9 +1,10 @@
 const grid = document.querySelector('.grid');
 const newGridButton = document.querySelector('.new-grid-button');
-const DEFAULT_GRID_WIDTH = 16;
-const GRID_SQUARE_WIDTH = 7;
+const DEFAULT_GRID_WIDTH = 500;
+const DEFAULT_GRID_DIMENSION = 16;
+const GRID_SQUARE_WIDTH = 60;
 
-generateGrid(DEFAULT_GRID_WIDTH)
+generateGrid(DEFAULT_GRID_DIMENSION)
 
 newGridButton.addEventListener('click', generateNewGrid);
 
@@ -24,10 +25,12 @@ function generateNewGrid() {
 }
 
 function generateGrid(width) {
-    grid.style.width = width*GRID_SQUARE_WIDTH+'px';
+    const gridSquareWidth = DEFAULT_GRID_WIDTH/width+"px";
     for (let i = 0; i < width ** 2; i++) {
         const gridSquare = document.createElement('div');
         gridSquare.classList.add('grid-square');
+        gridSquare.style.width = gridSquareWidth;
+        gridSquare.style.height = gridSquareWidth;
         gridSquare.addEventListener('mouseover', colorSquare);
         grid.appendChild(gridSquare);
     }
