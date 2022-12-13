@@ -11,6 +11,7 @@ generateGrid(DEFAULT_GRID_DIMENSION);
 
 newGridButton.addEventListener('click', generateNewGrid);
 randomColorButton.addEventListener('click', setRandomMode);
+defaultColorButton.addEventListener('click', setDefaultMode);
 
 function colorSquareBlack(e) {
     e.target.style.backgroundColor = 'black';
@@ -55,5 +56,14 @@ function setRandomMode() {
         const gridSquare = children[i];
         gridSquare.removeEventListener('mouseover', colorSquareBlack);
         gridSquare.addEventListener('mouseover', colorSquareRandom);
+    }
+}
+
+function setDefaultMode() {
+    const children = grid.children;
+    for (let i = 0; i < children.length; i++) {
+        const gridSquare = children[i];
+        gridSquare.removeEventListener('mouseover', colorSquareRandom);
+        gridSquare.addEventListener('mouseover', colorSquareBlack);
     }
 }
