@@ -33,7 +33,8 @@
 
 .new-grid-button,
 .random-color-button,
-.default-color-button {
+.default-color-button,
+.sketch-button {
     padding: 5px;
     font-size: 18px;
 }

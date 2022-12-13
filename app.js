@@ -2,16 +2,17 @@ const grid = document.querySelector('.grid');
 const newGridButton = document.querySelector('.new-grid-button');
 const defaultColorButton = document.querySelector('.default-color-button');
 const randomColorButton = document.querySelector('.random-color-button');
+const sketchButton = document.querySelector('.sketch-button');
 
 const DEFAULT_GRID_WIDTH = 500;
 const DEFAULT_GRID_DIMENSION = 16;
 const MAX_GRID_DIMENSION = 64;
 
-generateGrid(DEFAULT_GRID_DIMENSION);
-
 newGridButton.addEventListener('click', generateNewGrid);
 randomColorButton.addEventListener('click', setRandomMode);
 defaultColorButton.addEventListener('click', setDefaultMode);
+
+generateGrid(DEFAULT_GRID_DIMENSION);
 
 function colorSquareBlack(e) {
     e.target.style.backgroundColor = 'black';
@@ -22,6 +23,10 @@ function colorSquareRandom(e) {
     const green = Math.floor(Math.random() * 256);
     const blue = Math.floor(Math.random() * 256);
     e.target.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+}
+
+function colorSquareProgressive(e) {
+    e.target.style.backgroundColor = `hsl(0, 0%, 50%)`
 }
 
 function generateNewGrid() {
@@ -65,5 +70,15 @@ function setDefaultMode() {
         const gridSquare = children[i];
         gridSquare.removeEventListener('mouseover', colorSquareRandom);
         gridSquare.addEventListener('mouseover', colorSquareBlack);
+    }
+}
+
+function setSketchMode() {
+    const children = grid.children;
+    for (let i = 0; i < children.length; i++) {
+        const gridSquare = children[i];
+        gridSquare.target.style.backgroundColor = 'white';
+        gridSquare.removeEventListener('mouseover', colorSquareBlack);
+        gridSquare.addEventListener('mouseover', colorSquareProgressive);
     }
 }
