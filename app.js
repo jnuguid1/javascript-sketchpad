@@ -1,7 +1,7 @@
 const grid = document.querySelector('.grid');
 const newGridButton = document.querySelector('.new-grid-button');
 const DEFAULT_GRID_WIDTH = 16;
-const GRID_SQUARE_WIDTH = 10;
+const GRID_SQUARE_WIDTH = 7;
 
 generateGrid(DEFAULT_GRID_WIDTH)
 

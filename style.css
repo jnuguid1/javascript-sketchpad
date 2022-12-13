@@ -3,22 +3,23 @@
     justify-content: center;
     align-items: flex-start;
     height: 70vh;
-    margin-top: 50px;
+    margin-top: 20px; 
 }
 
-.grid{
+.grid {
     display: flex;
     justify-content: center;
     align-items: center;
     align-content: flex-start;
     width: 160px;
     flex-wrap: wrap;
+    margin-bottom: 30px;
 }
 
 .grid-square {
     border-style: solid;
-    width: 10px;
-    height: 10px;
+    width: 7px;
+    height: 7px;
     box-sizing: border-box;
     border-width: 1px;
 }
@@ -26,10 +27,10 @@
 .button-container {
     display: flex;
     justify-content: center;
-    margin-top: 100px;
+    margin-top: 30px;
 }
 
 .new-grid-button {
-    padding: 10px;
-    font-size: 20px;
+    padding: 5px;
+    font-size: 18px;
 }
