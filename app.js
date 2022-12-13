@@ -11,6 +11,7 @@ const MAX_GRID_DIMENSION = 64;
 newGridButton.addEventListener('click', generateNewGrid);
 randomColorButton.addEventListener('click', setRandomMode);
 defaultColorButton.addEventListener('click', setDefaultMode);
+sketchButton.addEventListener('click', setSketchMode);
 
 generateGrid(DEFAULT_GRID_DIMENSION);
 
@@ -26,7 +27,18 @@ function colorSquareRandom(e) {
 }
 
 function colorSquareProgressive(e) {
-    e.target.style.backgroundColor = `hsl(0, 0%, 50%)`
+    const rgb = getComputedStyle(e.target).backgroundColor;
+    let currentRed = rgb.substring(4,7);
+    if (currentRed.charAt(currentRed.length-1) == ',') {
+        currentRed = currentRed.substring(0,currentRed.length-1);
+    }
+    if (currentRed > 200) {
+        e.target.style.backgroundColor = `rgb(${200}, ${200}, ${200})`;
+    } else if (20 >= currentRed <= 200) {
+        const newColor = currentRed - 20;
+        e.target.style.backgroundColor = `rgb(${newColor}, ${newColor}, ${newColor})`;
+        console.log(getComputedStyle(e.target).backgroundColor);
+    }
 }
 
 function generateNewGrid() {
@@ -77,7 +89,7 @@ function setSketchMode() {
     const children = grid.children;
     for (let i = 0; i < children.length; i++) {
         const gridSquare = children[i];
-        gridSquare.target.style.backgroundColor = 'white';
+        gridSquare.style.backgroundColor = 'white';
         gridSquare.removeEventListener('mouseover', colorSquareBlack);
         gridSquare.addEventListener('mouseover', colorSquareProgressive);
     }
